@@ -14,10 +14,10 @@ end
 
 Entao("valido que a task foi criada com {string}") do |sucesso|
   @task.view.click
-  @task.selection.assert_text sucesso
+  expect(@task.selection.text).to eq(sucesso)
+  # @task.selection.assert_text sucesso
   # @task.selection.has_text? sucesso
   # expect(@task.selection.assert_text sucesso).to eq(sucesso)
-  # expect(@task.selection.text).to eq(sucesso)
 end
 
 Quando("edito os dados da task criada") do

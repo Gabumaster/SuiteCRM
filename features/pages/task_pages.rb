@@ -7,7 +7,7 @@ class Task < SitePrism::Page
     element :loginbutton, 'input[id="bigbutton"]'
     element :create, :xpath, '(//*[@id="quickcreatetop"])[3]'
     element :createtask, :xpath, '(//a[@href="index.php?module=Tasks&action=EditView&return_module=Tasks&return_action=DetailView"])[3]'
-    element :waithtml, 'canvas[class="resizableCanvas"]'
+    element :waithtml, :xpath, '(//*[@*="noBullet"])[2]' #'*[*="resizableCanvas"]'
     element :nome, 'input[id="name"]'
     element :priority, 'select[id="priority"]'
     element :p2, 'option[label="Medium"]'
@@ -16,8 +16,7 @@ class Task < SitePrism::Page
     element :s1, 'option[label="In Progress"]'
     element :save, :xpath, '(//*[@*="Save"])[2]'
     element :view, :xpath, '(//*[@*="actionmenulink"])[2]'
-    element :selection, 'div[class="listViewBody"]' #'table[class="list view table-responsive"]' :xpath,'(//*[@*="name"])[1]'
-    element :nametask, :xpath, '(//*[@*="name"])[1]'
+    element :selection, :xpath,'(//*[@*="name"])[1]'
     element :activities, :xpath, '(//*[@*="dropdown-toggle grouptab"])[4]'
     element :list, '*[href="?action=ajaxui#ajaxUILoc=index.php%3Fmodule%3DTasks%26action%3Dindex%26parentTab%3DActivities"]'
     element :action, :xpath, '(//*[@*="dropdown-toggle"])[4]'
@@ -54,18 +53,9 @@ class Task < SitePrism::Page
     def tasklist
       activities.hover
       list.click
-      nametask.click
+      selection.click_on
+      action.click
+      edit.click
     end
-
-    #   def Senha
-    #     senhacadastro.set @senha
-    #     senhaconf.set(@senha)
-    #   end
-    
-    #   def Finalizacao
-    #     enviadados.click
-    #     wait_until_alert_visible
-    #     puts alert.text
-    #   end
 end
   

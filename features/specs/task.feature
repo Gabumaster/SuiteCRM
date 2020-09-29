@@ -4,11 +4,11 @@ Funcionalidade: Criar tarefa no site da SuiteCRM
 
 Contexto: Login
     Dado que tenha efetuado o login no site
-    Quando clico em criar tarefa
-
+    
 @criar
-Esquema do Cenario: Criar tarefa     
-    Quando preencho os dados "<subject>", "<description>"
+Esquema do Cenario: Criar tarefa   
+    Quando clico em criar tarefa
+    E preencho os dados "<subject>", "<description>"
     Entao valido que a task foi criada com "<sucesso>"
 
     Exemplos:
@@ -17,11 +17,11 @@ Esquema do Cenario: Criar tarefa
       |  Among us   |  Denizera   |  Among us   |
       | The Witcher |  Staguera   | The Witcher |
       |  Fortnite   |  Adelmera   |  Fortnite   |
-
+         
+@editar
 Cenario: Editar tarefa
     Quando edito os dados da task criada
     Entao valido que a task foi editada com sucesso
-
 
 Cenario: Deletar tarefa
     Quando deleto a task
