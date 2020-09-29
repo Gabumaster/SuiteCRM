@@ -8,7 +8,7 @@ require 'selenium-webdriver'
 require 'rspec'
 require 'httparty'
 
-$wait = Selenium::WebDriver::Wait.new :timeout => 30
+# $wait = Selenium::WebDriver::Wait.new :timeout => 30
 
 
 #Configurando o driver Capybara

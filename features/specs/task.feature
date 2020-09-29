@@ -18,7 +18,6 @@ Esquema do Cenario: Criar tarefa
       | The Witcher |  Staguera   | The Witcher |
       |  Fortnite   |  Adelmera   |  Fortnite   |
 
-
 Cenario: Editar tarefa
     Quando edito os dados da task criada
     Entao valido que a task foi editada com sucesso
