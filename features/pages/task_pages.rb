@@ -7,7 +7,7 @@ class Task < SitePrism::Page
     element :loginbutton, 'input[id="bigbutton"]'
     element :create, :xpath, '(//*[@id="quickcreatetop"])[3]'
     element :createtask, :xpath, '(//a[@href="index.php?module=Tasks&action=EditView&return_module=Tasks&return_action=DetailView"])[3]'
-    element :waithtml, :xpath, '(//*[@*="noBullet"])[2]' #'*[*="resizableCanvas"]'
+    element :waithtml, :xpath, '(//*[@*="noBullet"])[2]'
     element :nome, 'input[id="name"]'
     element :priority, 'select[id="priority"]'
     element :p2, 'option[label="Medium"]'
@@ -16,14 +16,17 @@ class Task < SitePrism::Page
     element :s1, 'option[label="In Progress"]'
     element :save, :xpath, '(//*[@*="Save"])[2]'
     element :view, :xpath, '(//*[@*="actionmenulink"])[2]'
-    element :selection, :xpath,'(//*[@*="name"])[1]'
+    element :selection1, :xpath,'(//*[@*="name"])[1]'
+    element :selection2, :xpath,'(//*[@*="name"])[2]'
+    element :selection3, :xpath,'(//*[@*="name"])[3]'
+    element :selection4, :xpath,'(//*[@*="name"])[4]'
     element :activities, :xpath, '(//*[@*="dropdown-toggle grouptab"])[4]'
     element :list, '*[href="?action=ajaxui#ajaxUILoc=index.php%3Fmodule%3DTasks%26action%3Dindex%26parentTab%3DActivities"]'
-    element :action, :xpath, '(//*[@*="dropdown-toggle"])[4]'
+    element :waitedit, '*[style="visibility: visible;"]'
+    element :action, '*[class="dropdown"]'
     element :edit, 'input[id="edit_button"]'
-    element :editDes, :xpath, '(//*[@id="tab-content-0"]/div[5]/div/div[2])'
-    element :editsave, :xpath, '(//*[@id="SAVE"])[1]'
-    element :editview, :xpath, '(//*[@id="MassUpdate"]/div[3]/table/tbody/tr[1]/td[4]/b/a)'
+    element :editDes, '*[name="description"]'
+    element :delete,'*[id="delete_button"]'
     element :usulogout, :xpath, '(//*[@id="with-label"]/span[2])'
     element :logout, '(a[id="logout_link"])[3]'
     # ---------------------------------------------------------#
@@ -53,9 +56,11 @@ class Task < SitePrism::Page
     def tasklist
       activities.hover
       list.click
-      selection.click_on
-      action.click
-      edit.click
     end
+
+    def alert
+      page.driver.browser.switch_to.alert.accept
+    end
+
 end
   

@@ -13,16 +13,24 @@ Esquema do Cenario: Criar tarefa
 
     Exemplos:
       |   subject   | description |  sucesso    |
-      | Fall Guys   |  Gabumaster |  Fall Guys  |         
+      | Fall Guys   |  Gabumaster |  Fall Guys  |
       |  Among us   |  Denizera   |  Among us   |
-      | The Witcher |  Staguera   | The Witcher |
+      | The Witcher |  Staguera   | The Witcher |  
       |  Fortnite   |  Adelmera   |  Fortnite   |
-         
-@editar
-Cenario: Editar tarefa
+
+# Esquema do Cenario: Editar tarefa
+    # Quando "<editar>" os dados da task criada 
+
+    # Exemplos:
+    # | editar  |
+    # |  Gabu   |
+    # | Dennis  |
+    # |  Stag   |
+    # | Adelmo  |
+
+@editar_deletar
+Cenario: Editar e deletar a tarefa
     Quando edito os dados da task criada
     Entao valido que a task foi editada com sucesso
-
-Cenario: Deletar tarefa
-    Quando deleto a task
+    E deleto a task
     Entao valido que a task foi deletada com sucesso

@@ -14,7 +14,7 @@ end
 
 Entao("valido que a task foi criada com {string}") do |sucesso|
   @task.view.click
-  expect(@task.selection.text).to eq(sucesso)
+  expect(@task.selection1.text).to eq(sucesso)
   # @task.selection.assert_text sucesso
   # @task.selection.has_text? sucesso
   # expect(@task.selection.assert_text sucesso).to eq(sucesso)
@@ -22,17 +22,25 @@ end
 
 Quando("edito os dados da task criada") do
   @task.tasklist
-  binding.pry
-end
+  @task.selection1.click_on
+  sleep 3
+  @task.action.click
+  @task.edit.click
+  @task.editDes.set "Gabu"
+end 
 
 Entao("valido que a task foi editada com sucesso") do
-  pending # Write code here that turns the phrase above into concrete actions
+  @task.save.click
 end
 
-Quando("deleto a task") do
-  pending # Write code here that turns the phrase above into concrete actions
+Entao("deleto a task") do
+  @task.tasklist
+  @task.selection1.click_on
+  sleep 3
+  @task.action.click
+  @task.delete.click
 end
 
 Entao("valido que a task foi deletada com sucesso") do
-  pending # Write code here that turns the phrase above into concrete actions
+  @task.alert
 end

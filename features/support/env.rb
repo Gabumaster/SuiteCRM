@@ -8,8 +8,7 @@ require 'selenium-webdriver'
 require 'rspec'
 require 'httparty'
 
-# $wait = Selenium::WebDriver::Wait.new :timeout => 30
-
+# $wait = Selenium::WebDriver::Wait.new :timeout => 3
 
 #Configurando o driver Capybara
 Capybara.register_driver :selenium do |app|
@@ -24,6 +23,13 @@ Capybara.register_driver :selenium do |app|
   
   #Maximizar a tela ao iniciar os testes
   Capybara.page.driver.browser.manage.window.maximize
+
+  #Confirmação de pop-up do navegador 
+    # page.driver.browser.switch_to.alert.accept
+    # or
+    # page.driver.browser.switch_to.alert.dismiss
+    # or
+    # page.driver.browser.switch_to.alert.text
     
 
 
